@@ -21,27 +21,30 @@
           <form{{ with $action }} action="{{ . }}"{{end}}{{ with $method }} method="{{ . }}"{{end}}>
             <div class="columns is-multiline">
               <div class="column is-12">
-                <input class="input is-medium" name="name" type="text" placeholder="Name">
+                <input class="input is-medium" required name="name" type="text" placeholder="Name">
               </div>
               <div class="column is-12">
-                <input class="input is-medium" name="business_name" type="text" placeholder="Business Name">
+                <input class="input is-medium" required name="business_name" type="text" placeholder="Business Name">
               </div>
               <div class="column is-12">
-                <input class="input is-medium" name="email" type="email" placeholder="Email">
+                <input class="input is-medium" required name="email" type="email" placeholder="Email">
               </div>
               <div class="column is-6">
-                <input class="input is-medium" name="phone" type="tel" placeholder="Phone Number">
+                <input class="input is-medium" required name="phone" type="tel" placeholder="Phone Number">
               </div>
               <div class="column is-6">
-                <input class="input is-medium" name="text" type="text" placeholder="City (NJ only)">
+                <input class="input is-medium" required name="text" type="text" placeholder="City (NJ only)">
               </div>
               <div class="column is-12">
                 <div class="select">
-                    <select name="type">
+                    <select required name="type">
                         <option value="" disabled selected>Select business type</option>
                         <option value="restaurant">Restaurant</option>
                         <option value="grocery">Grocery</option>
                         <option value="car_wash">Car Wash</option>
+                        <option value="tire_body_shop">Tire/Body Shop</option>
+                        <option value="pharmacy">Pharmacy</option>
+                        <option value="gas_station">Gas Station</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
