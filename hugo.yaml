@@ -1,0 +1,86 @@
+baseURL: http://nulofinance.com/
+languageCode: en-us
+title: Nulo Finance
+
+module:
+  # uncomment line below for local development of module
+  # workspace: hugo.work
+  imports:
+    path: github.com/StefMa/hugo-fresh
+
+# Disables warnings
+disableKinds:
+- taxonomy
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows you to write raw html in your md files
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: true
+  sidebar: false
+  # Used as meta data; describe your site to make Google Bots happy
+  description: Cash discount card processing for North Jersey small businesses.
+  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
+  # preloader: false
+  navbarlogo:
+  # Logo (from static/images/logos/___)
+    image: logos/nulo2.png
+    link: /
+    # Default width/height. Uncomment if you need to change
+    # width: 112
+    # height: 28
+  font:
+    name: "Open Sans"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: Nulo Finance
+    # Hero subtitle
+    subtitle: Cash discount card processing for North Jersey. Customers get a discount for paying cash, and you pay $0 in monthly fees for credit card processing.
+    # Button text
+    buttontext: Get started
+    # Where the main hero button links to
+    buttonlink: "#section5"
+    # Hero image (from static/images/___)
+    image: illustrations/worker.svg
+
+  section1:
+    title: Earn back your credit card fees
+    subtitle: 
+    tiles:
+    - title: Let card users pay the fee
+      # icon: mouse-globe
+      text: Reward your cash customers by giving them a discount. Accept credit cards without losing revenue to fees. Let your customers decide what makes sense for them.
+      url: /
+      buttonText: Free trial
+    - title: Work with a local
+      # icon: laptop-cloud
+      text: Our team is based in Paramus - reach us by phone or email anytime, and we're happy to stop by and say hello in-person. Can you say the same for your card processor?
+      url: /
+      buttonText: Get started
+  section5:
+    title: Interested?
+    subtitle: We'd love to hear from you - fill in your info below and we'll reach out!
+    buttonText: Send Message
+    action: https://formspree.io/f/mrgwqjro
+    method: POST
+  footer:
+    # Logo (from /images/logos/___)
+    logo: fresh-white-alt.svg
+    bulmalogo: false
+    # quicklinks:
+    #   column1:
+    #     title: "Product"
+    #     links:
+    #     - text: Discover features
+    #       link: /
+    #     - text: Why choose our product?
+    #       link: /
+    #     - text: Compare features
+    #       link: /
+    #     - text: Our roadmap
+    #       link: /
+    #     - text: AGB
+    #       link: /agb
