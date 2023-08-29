@@ -35,7 +35,7 @@
               <div class="column is-6">
                 <input class="input is-medium" required name="text" type="text" placeholder="City (NJ only)">
               </div>
-              <div class="column is-12">
+              <div class="column is-6">
                 <div class="select">
                     <select required name="type">
                         <option value="" disabled selected>Select business type</option>
@@ -46,6 +46,17 @@
                         <option value="pharmacy">Pharmacy</option>
                         <option value="gas_station">Gas Station</option>
                         <option value="other">Other</option>
+                    </select>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="select">
+                    <select required name="volume">
+                        <option value="" disabled selected>Monthly card volume?</option>
+                        <option value="under_25">Under $25,000</option>
+                        <option value="25_to_50">$25,000 - $50,000</option>
+                        <option value="50_to_100">$50,000 - $100,000</option>
+                        <option value="over_100">Over $100,000</option>
                     </select>
                 </div>
               </div>
