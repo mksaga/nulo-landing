@@ -14,46 +14,51 @@
       <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
       <div class="divider is-centered mb-2"></div>
     </div>
-            <div class="level is-mobile">
-                <div class="level-left">
-                    <div class="level-item">
-                        <label id="monthlyVolume">Monthly card volume?</label>
-                    </div>
-                </div>
-                <div class="level-right">
-                    <div class="level-item">
-                        <p id="monthlyVolumeAmount"></p>
-                    </div>
-                    <div class="level-item">
-                        <input  type="range" min=0 max=60000 value=20000 step=5000 id="monthlyVolumeSlider" style="width:100px">
-                    </div>
-                </div>
-            </div>
-            <div class="level is-mobile">
-                <div class="level-left">
-                    <div class="level-item">
-                    <label id="youPay">Monthly additional fees?</label>
-                    </div>
-                </div>
-                <div class="level-right">
-                    <div class="level-item">
-                        <input class="input" type="number" value=25 min=0 max=100 id="monthlyFees">
-                    </div>
-                </div>
-            </div>
 
-            <table class="table mx-auto">
-                <thead>
-                    <th>Your Cost Today</th>
-                    <th>Your Cost w/ Nulo</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td align="center" id="currentCost">$100</td>
-                        <td align="center">{{ $nuloMonthlyFee }}</td>
-                    </tr>
-                </tbody>
-                </table>
+    <div class="is-spaced title-wrapper mb-3">
+        <div class="level is-mobile is-centered">
+            <div class="level-left">
+                <div class="level-item">
+                    <label id="monthlyVolume">Monthly card volume?</label>
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <p id="monthlyVolumeAmount"></p>
+                </div>
+                <div class="level-item">
+                    <input  type="range" min=2000 max=60000 value=20000 step=2000 id="monthlyVolumeSlider" style="width:100px">
+                </div>
+            </div>
+        </div>
+        <div class="level is-mobile">
+            <div class="level-left">
+                <div class="level-item">
+                <label id="youPay">Monthly additional fees?</label>
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <input class="input" type="number" value=25 min=0 max=100 id="monthlyFees">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table mx-auto">
+        <thead>
+            <th>Your Cost Today</th>
+            <th>Your Cost w/ Nulo</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center" id="currentCost">$100</td>
+                <td align="center">${{ $nuloMonthlyFee }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5 class="title is-5">Potential Savings: <span id="potentialSavings"></span></h5>
 
             <!-- Update UI based on slider/input values -->
             <script>
@@ -63,46 +68,31 @@
                     maximumFractionDigits: 0,
                 });
 
-                document.addEventListener("DOMContentLoaded", () => {
-                    let volume = document.getElementById("monthlyVolumeSlider").value;
-                    let monthlyFees = document.getElementById("monthlyFees").value;
+                const NULO_FEE = 50;
+                const COMPARISON_CARD_CHARGE = 0.025;
 
-                    document.getElementById("monthlyVolumeAmount").textContent = `${USDollar.format(volume)}`;
+                document.addEventListener("DOMContentLoaded", () => updateUI())
 
-                    let intVolume = parseInt(volume);
+                document.getElementById("monthlyVolumeSlider").addEventListener("change", (event) => updateUI())
 
-                    let intCardFees = 0.025 * intVolume;
-                    let intMonthlyFees = parseInt(monthlyFees);
+                document.getElementById("monthlyFees").addEventListener("change", (event) => updateUI())
 
-                    document.getElementById("currentCost").textContent = `${USDollar.format(intCardFees + intMonthlyFees)}`
-                });
-
-
-                document.getElementById("monthlyVolumeSlider").addEventListener("change", (event) => {
-                    let volume = document.getElementById("monthlyVolumeSlider").value;
-                    let monthlyFees = document.getElementById("monthlyFees").value;
-
-                    document.getElementById("monthlyVolumeAmount").textContent = `${USDollar.format(event.target.value)}`;
-
-                    let intVolume = parseInt(volume);
-
-                    let intCardFees = 0.025 * intVolume;
-                    let intMonthlyFees = parseInt(monthlyFees);
-
-                    document.getElementById("currentCost").textContent = `${USDollar.format(intCardFees + intMonthlyFees)}`;
-                });
-
-                document.getElementById("monthlyFees").addEventListener("change", (event) => {
+                function updateUI() {
                     let volume = document.getElementById("monthlyVolumeSlider").value;
                     let monthlyFees = document.getElementById("monthlyFees").value;
 
                     let intVolume = parseInt(volume);
 
-                    let intCardFees = 0.025 * intVolume;
+                    let intCardFees = COMPARISON_CARD_CHARGE * intVolume;
                     let intMonthlyFees = parseInt(monthlyFees);
 
-                    document.getElementById("currentCost").textContent = `$${intCardFees + intMonthlyFees}`;
-                });
+                    let totalFees = intCardFees + intMonthlyFees;
+                    let savings = totalFees - NULO_FEE;
+
+                    document.getElementById("potentialSavings").textContent = `${USDollar.format(savings)}/month`;
+                    document.getElementById("monthlyVolumeAmount").textContent = `${USDollar.format(intVolume)}`;
+                    document.getElementById("currentCost").textContent = `${USDollar.format(totalFees)}`;
+                }
             </script>
 
 </section>

@@ -36,7 +36,7 @@ params:
     # Main hero title
     title: Nulo Finance
     # Hero subtitle
-    subtitle: Dual pricing for North Jersey. Customers get a discount for paying cash, and you pay $0 in transaction fees for card processing.
+    subtitle: Dual pricing for North Jersey. Your customers get a discount for paying cash, you pay a fixed monthly fee and $0 per transaction for card processing.
     # Button text
     buttontext: Get started
     # Where the main hero button links to
@@ -61,7 +61,7 @@ params:
       buttonText: Get started
   section4:
     title: How much could you save?
-    nuloMonthlyFee: $25
+    nuloMonthlyFee: 50
   section5:
     title: Interested?
     subtitle: We'd love to chat about working together - fill in your info below and we'll reach out!
