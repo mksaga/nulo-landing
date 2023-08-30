@@ -24,7 +24,7 @@ params:
   description: Cash discount card processing for North Jersey small businesses.
   navbarlogo:
   # Logo (from static/images/logos/___)
-    image: logos/nulo2.png
+    # image: logos/nulo2.png
     link: /
     # Default width/height. Uncomment if you need to change
     # width: 112
@@ -34,9 +34,9 @@ params:
     sizes: [400,600]
   hero:
     # Main hero title
-    title: Nulo Finance
+    title: Dual Pricing for North Jersey
     # Hero subtitle
-    subtitle: Dual pricing for North Jersey. Your customers get a discount for paying cash, you pay a fixed monthly fee and $0 per transaction for card processing.
+    subtitle: Your customers get a discount for paying cash, you pay a fixed monthly fee and $0 per transaction for credit card processing.
     # Button text
     buttontext: Get started
     # Where the main hero button links to
