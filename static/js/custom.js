@@ -5,7 +5,7 @@ let USDollar = new Intl.NumberFormat('en-US', {
 });
 
 const NULO_FEE = 50;
-const COMPARISON_CARD_CHARGE = 0.025;
+const COMPARISON_CARD_CHARGE = 0.018;
 
 document.addEventListener("DOMContentLoaded", () => updateUI())
 document.getElementById("monthlyVolumeSlider").addEventListener("change", (event) => updateUI())
