@@ -4,8 +4,8 @@ let USDollar = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0,
 });
 
-const NULO_FEE = 50;
-const COMPARISON_CARD_CHARGE = 0.018;
+const NULO_FEE = 90;
+const COMPARISON_CARD_CHARGE = 0.025;
 
 document.addEventListener("DOMContentLoaded", () => updateUI())
 document.getElementById("monthlyVolumeSlider").addEventListener("change", (event) => updateUI())

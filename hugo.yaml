@@ -61,7 +61,7 @@ params:
       buttonText: Get started
   section4:
     title: How much could you save?
-    nuloMonthlyFee: 50
+    nuloMonthlyFee: 90
   section5:
     title: Interested?
     subtitle: We'd love to chat about working together - fill in your info below and we'll reach out!
